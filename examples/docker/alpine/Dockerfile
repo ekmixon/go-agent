@@ -20,7 +20,7 @@ RUN go build -v github.com/sqreen/go-agent/sdk/sqreen-instrumentation-tool
 RUN go build -v -a -toolexec $PWD/sqreen-instrumentation-tool -o hello-sqreen .
 
 # Final application docker image
-FROM alpine
+FROM alpine:3.15.4
 # Copy the app program file
 COPY --from=build /app/hello-sqreen /usr/local/bin
 # Every required shared library is present, but the C library doesn't have the
